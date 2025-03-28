@@ -123,6 +123,8 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
+=======
 --- !u!1 &503047314
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,6 +213,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> 6064971b2da36e201be814aaa9c6029e33385d79
 --- !u!1 &826944890
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,6 +306,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+=======
 --- !u!1 &2011292465
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,11 +353,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> 6064971b2da36e201be814aaa9c6029e33385d79
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 826944893}
+<<<<<<< HEAD
+=======
   - {fileID: 2011292467}
   - {fileID: 534928403}
   - {fileID: 503047315}
+>>>>>>> 6064971b2da36e201be814aaa9c6029e33385d79
