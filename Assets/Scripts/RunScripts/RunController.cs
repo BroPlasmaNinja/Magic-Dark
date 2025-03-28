@@ -8,6 +8,7 @@ public sealed class RunController : MonoBehaviour
     uint Souls;
     readonly uint[] LevelUpBorders;
     uint Timer;
+
     void OnEnd()
     {
 
