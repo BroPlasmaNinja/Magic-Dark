@@ -1,18 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
 
-public class IDamagable : MonoBehaviour
+namespace Assets.Scripts.RunScripts.Interfaces
 {
-    // Start is called before the first frame update
-    void Start()
+    public interface IDamagable
     {
-        
-    }
+        public void TakeDMG();
+        public void Death();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        event EventHandler death;
     }
 }
