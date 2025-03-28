@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 namespace Assets.Scripts.RunScripts
 {
-    internal sealed class Player : MonoBehaviour, ICanCast, IDamagable
+    public sealed class Player : MonoBehaviour, ICanCast, IDamagable
     {
         [Serializable] private float _speed;
 
