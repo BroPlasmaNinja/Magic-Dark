@@ -8,7 +8,7 @@ public sealed class GameManager : MonoBehaviour
 {
     
     public static RunController? runController;
-    public int Souls;
+    public ulong Souls;
     public Player Shama;
     private static GameManager _instance;
 

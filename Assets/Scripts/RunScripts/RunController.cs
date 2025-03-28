@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using Assets.Scripts.RunScripts.ScriptableObjects;
 
-public class RunController : MonoBehaviour
+public sealed class RunController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    uint Souls;
+    readonly uint[] LevelUpBorders;
+    uint Timer;
 
-    // Update is called once per frame
-    void Update()
+    List<Waves> AvailableWaves;
+
+    void OnEnd()
     {
-        
+
     }
+    void OnPlayerDeath()
+    {
+
+    }
+    float difficultyCoef;
 }
