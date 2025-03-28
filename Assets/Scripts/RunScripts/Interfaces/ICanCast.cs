@@ -8,5 +8,6 @@ namespace Assets.Scripts.RunScripts.Interfaces
 {
     internal interface ICanCast
     {
+        void Cast();
     }
 }
