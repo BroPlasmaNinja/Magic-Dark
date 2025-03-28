@@ -10,7 +10,7 @@ public sealed class RunController : MonoBehaviour
     readonly uint[] LevelUpBorders;
     uint Timer;
 
-    List<Waves> AvailableWaves;
+    List<Wave> AvailableWaves;
 
     void OnEnd()
     {

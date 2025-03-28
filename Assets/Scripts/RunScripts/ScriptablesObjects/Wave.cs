@@ -4,7 +4,8 @@ using Assets.Scripts.RunScripts.Interfaces;
 
 namespace Assets.Scripts.RunScripts.ScriptableObjects
 {
-    internal class Waves : ScriptableObject, IAvailableWithProgress
+    [CreateAssetMenu(fileName = "Wave", menuName = "InfoPreFabs/Wave")]
+    internal class Wave : ScriptableObject, IAvailableWithProgress
     {
         [SerializeField] 
         List<(EnemyInfo, int Count)> Enemies;
