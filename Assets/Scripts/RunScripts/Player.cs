@@ -1,7 +1,6 @@
 ﻿using Assets.Scripts.RunScripts.Interfaces;
 using System;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace Assets.Scripts.RunScripts
 {
