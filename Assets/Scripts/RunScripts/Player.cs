@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.RunScripts
 {
-    internal class Player
+    public class Player
     {
     }
 }
