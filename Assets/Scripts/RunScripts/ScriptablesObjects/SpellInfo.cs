@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets.Scripts.RunScripts.Info
+namespace Assets.Scripts.RunScripts.ScriptableObjects
 {
     internal class SpellInfo
     {
