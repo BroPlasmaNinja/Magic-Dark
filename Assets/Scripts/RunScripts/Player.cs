@@ -52,7 +52,7 @@ namespace Assets.Scripts.RunScripts
         }
         public void Death()
         {
-            //death.Invoke(this, new());
+            death.Invoke(this, new());
             Debug.Log("You lose");
         }
 

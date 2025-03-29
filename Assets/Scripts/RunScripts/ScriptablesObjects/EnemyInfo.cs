@@ -14,6 +14,8 @@ namespace Assets.Scripts.RunScripts.ScriptableObjects
         ulong _necessarySouls;
         
         public ulong necessarySouls => _necessarySouls;
+
+        public Animation Animation { get; private set; }
         
         public float Speed { get; private set; }
 
@@ -26,12 +28,14 @@ namespace Assets.Scripts.RunScripts.ScriptableObjects
             Speed = enemyInfo.Speed;
             Hp = enemyInfo.Hp;
             BaseDmg = enemyInfo.BaseDmg;
+            Animation = enemyInfo.Animation;
         }
-        public EnemyInfo(float speed, int hp, int baseDmg)
+        public EnemyInfo(float speed, int hp, int baseDmg, Animation animation)
         {
             Speed += speed;
             Hp = hp;
             BaseDmg = baseDmg;
+            Animation = animation;
         }
     }
 }
