@@ -32,7 +32,9 @@ public sealed class RunController : MonoBehaviour
         while (true)
         {
             timer += 1;
-            Debug.Log(timer);
+            if (timer % 15 == 0)
+                nextWave.Invoke(this, new EventArgs());
+
             yield return new WaitForSeconds(1);
         }
     }
@@ -66,5 +68,6 @@ public sealed class RunController : MonoBehaviour
             waves.Enqueue(needed);
             timer += 15;
         }
+
     }
 }
