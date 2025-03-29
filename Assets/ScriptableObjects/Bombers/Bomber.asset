@@ -9,6 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61e21adf61b768248bacacdb752e4c72, type: 3}
+  m_Script: {fileID: 11500000, guid: 84b461d45502fc542bef9f97dd597767, type: 3}
   m_Name: Bomber
   m_EditorClassIdentifier: 
+  _necessarySouls: 0
+  speed: 4
+  baseDmg: 25
+  hp: 50
+  enemyType: 3
+  sprite: {fileID: 21300000, guid: 91439f3b3d750934093ff800bb7e8720, type: 3}

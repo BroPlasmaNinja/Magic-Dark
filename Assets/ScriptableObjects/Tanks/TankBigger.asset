@@ -9,6 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61e21adf61b768248bacacdb752e4c72, type: 3}
+  m_Script: {fileID: 11500000, guid: 84b461d45502fc542bef9f97dd597767, type: 3}
   m_Name: TankBigger
   m_EditorClassIdentifier: 
+  _necessarySouls: 0
+  speed: 1
+  baseDmg: 10
+  hp: 300
+  enemyType: 1
+  sprite: {fileID: 21300000, guid: 7c41b77453baf3d429ed97dcdf490a2c, type: 3}
