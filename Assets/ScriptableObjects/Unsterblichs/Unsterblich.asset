@@ -9,6 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61e21adf61b768248bacacdb752e4c72, type: 3}
+  m_Script: {fileID: 11500000, guid: 84b461d45502fc542bef9f97dd597767, type: 3}
   m_Name: Unsterblich
   m_EditorClassIdentifier: 
+  _necessarySouls: 0
+  speed: 0.5
+  baseDmg: 60
+  hp: 1000000
+  enemyType: 2
+  sprite: {fileID: -573055269, guid: dafa829c20a631245b16161e95133dd2, type: 3}
+  color: {r: 0.39215687, g: 0.78431374, b: 1, a: 0}
