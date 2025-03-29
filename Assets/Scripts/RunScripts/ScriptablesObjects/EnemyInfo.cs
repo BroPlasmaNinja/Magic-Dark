@@ -43,5 +43,16 @@ namespace Assets.Scripts.RunScripts.ScriptableObjects
             sprite = enemyInfo.sprite;
             sprite = enemyInfo.sprite;
         }
+
+        public EnemyInfo() { }
+
+        public EnemyInfo(EnemyInfo enemyInfo)
+        {
+            speed = enemyInfo.speed;
+            hp = enemyInfo.hp;
+            baseDmg = enemyInfo.baseDmg;
+            sprite = enemyInfo.sprite;
+            sprite = enemyInfo.sprite;
+        }
     }
 }

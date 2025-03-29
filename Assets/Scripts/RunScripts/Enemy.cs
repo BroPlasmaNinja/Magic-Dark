@@ -3,38 +3,33 @@ using Assets.Scripts.RunScripts.ScriptableObjects;
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngineInternal;
 
 namespace Assets.Scripts.RunScripts
 {
     public class Enemy : MonoBehaviour, IDamagable
     {
-        [SerializeField]
-        private float sec;
-
         private ushort x = 0;
 
         protected EnemyInfo enemyInfo;
-
-        // Неизменяемый EnemyInfo
 
         public GameObject CreateObject(Transform tr)
         {
             GameObject objEnemy = new GameObject();
             objEnemy.AddComponent<Enemy>().SetState(enemyInfo);
 
-            objEnemy.AddComponent<SpriteRenderer>().sprite = enemyInfo.sprite;
-            objEnemy.AddComponent<SpriteRenderer>().color = enemyInfo.color;
-
             var rigidComp = objEnemy.AddComponent<Rigidbody2D>();
             rigidComp.gravityScale = 0;
             rigidComp.freezeRotation = true;
 
-            objEnemy.AddComponent<Collider2D>();
+            objEnemy.AddComponent<BoxCollider2D>();
+
+            var spriteComp = objEnemy.AddComponent<SpriteRenderer>();
+            spriteComp.sprite = enemyInfo.sprite;
+            spriteComp.color = enemyInfo.color;
 
             objEnemy.transform.parent = tr;
 
-            return Instantiate(objEnemy, objEnemy.transform);
+            return objEnemy;
         }
 
         public Enemy(EnemyInfo enemyInfo)
@@ -65,8 +60,7 @@ namespace Assets.Scripts.RunScripts
 
         public void Death()
         {
-            death.Invoke(this, new EventArgs());
-            Debug.Log("You win");
+            Destroy(gameObject);
         }
 
         public void AI()
@@ -92,7 +86,7 @@ namespace Assets.Scripts.RunScripts
             while (true)
             {
                 x += 1;
-                yield return new WaitForSeconds(sec/1000000000);
+                yield return new WaitForSeconds(1/1000000000);
                 gameObject.transform.rotation = Quaternion.Euler(0, 0, 25f * MathF.Sin((float)x/100));
             }
         }

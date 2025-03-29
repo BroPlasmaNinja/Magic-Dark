@@ -6,7 +6,5 @@ namespace Assets.Scripts.RunScripts.Interfaces
     {
         public void TakeDMG(int dmg);
         public void Death();
-
-        event EventHandler death;
     }
 }

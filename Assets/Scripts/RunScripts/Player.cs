@@ -1,7 +1,6 @@
 ﻿using Assets.Scripts.RunScripts.Interfaces;
 using System;
 using System.Collections;
-using System.Threading;
 using UnityEngine;
 
 namespace Assets.Scripts.RunScripts
@@ -13,6 +12,9 @@ namespace Assets.Scripts.RunScripts
 
         [SerializeField]
         private int _hp;
+
+        [SerializeField]
+        private int maxHp; // временно
 
         [SerializeField]
         private float sec;
@@ -40,23 +42,23 @@ namespace Assets.Scripts.RunScripts
 
         public void Cast()
         {
+
         }
 
         public void TakeDMG(int dmg)
         {
             if (!isImmortality)
             {
-                Debug.Log($"Hp - {_hp - dmg}");
                 if (_hp - dmg > 0) _hp -= dmg;
                 else { Death(); return; }
                 isImmortality = true;
                 StartCoroutine(ShotsImmortality());
             }
         }
-        public void Death()
+        public void Death() // временно
         {
-            death.Invoke(this, new());
-            Debug.Log("You lose");
+            transform.position = Vector3.zero;
+            _hp = maxHp;
         }
 
         public void Move()
@@ -82,7 +84,7 @@ namespace Assets.Scripts.RunScripts
             {
                 x += 1;
                 yield return new WaitForSeconds(sec / 1000000000);
-                gameObject.transform.rotation = Quaternion.Euler(0, 0, 25f * MathF.Sin((float)x / 10));
+                gameObject.transform.rotation = Quaternion.Euler(0, 0, 25f * MathF.Sin((float)x / 100));
             }
         }
     }
