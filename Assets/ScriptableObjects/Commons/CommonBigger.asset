@@ -18,3 +18,4 @@ MonoBehaviour:
   hp: 125
   enemyType: 0
   sprite: {fileID: 21300000, guid: fc49ae27d86a9584dbe16e9ab830fb53, type: 3}
+  color: {r: 0.78431374, g: 0.39215687, b: 1, a: 0}
