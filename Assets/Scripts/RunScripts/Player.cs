@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.RunScripts.Interfaces;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
@@ -18,6 +19,8 @@ namespace Assets.Scripts.RunScripts
         private float sec;
 
         private bool isImmortality = false;
+
+        public List<Spell> SpellList = new List<Spell>();
 
         IEnumerator ShotsImmortality()
         {
