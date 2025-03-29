@@ -9,6 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61e21adf61b768248bacacdb752e4c72, type: 3}
+  m_Script: {fileID: 11500000, guid: 84b461d45502fc542bef9f97dd597767, type: 3}
   m_Name: CommonFasterBigger
   m_EditorClassIdentifier: 
+  _necessarySouls: 0
+  speed: 4
+  baseDmg: 35
+  hp: 100
+  enemyType: 0
+  sprite: {fileID: 21300000, guid: fc49ae27d86a9584dbe16e9ab830fb53, type: 3}
+  color: {r: 0.49019608, g: 0.49019608, b: 0.09803922, a: 0}

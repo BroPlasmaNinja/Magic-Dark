@@ -13,5 +13,6 @@ namespace Assets.Scripts.RunScripts.ScriptableObjects
     {
         ulong _necessarySouls;
         public ulong necessarySouls => _necessarySouls;
+
     }
 }
