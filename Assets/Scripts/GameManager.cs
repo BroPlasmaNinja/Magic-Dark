@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.RunScripts;
 using Unity.VisualScripting;
+using System;
 
 public sealed class GameManager : MonoBehaviour
 {
@@ -10,6 +11,19 @@ public sealed class GameManager : MonoBehaviour
     public static RunController runController;
     public ulong Souls;
     private static GameManager _instance;
+    private static System.Random _rnd;
+
+    public static System.Random rnd
+    {
+        get
+        {
+            if(_rnd == null)
+            {
+                _rnd = new System.Random();
+            }
+            return _rnd;
+        }
+    }
 
     // Публичное статическое свойство для доступа к экземпляру
     public static GameManager Instance
