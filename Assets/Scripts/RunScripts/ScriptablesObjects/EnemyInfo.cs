@@ -32,6 +32,9 @@ namespace Assets.Scripts.RunScripts.ScriptableObjects
         [SerializeField]
         public Sprite sprite;
 
+        [SerializeField]
+        public Color color;
+
         public void SetState(EnemyInfo enemyInfo)
         {
             speed = enemyInfo.speed;
