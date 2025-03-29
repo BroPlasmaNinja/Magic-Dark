@@ -16,6 +16,8 @@ namespace Assets.Scripts.RunScripts.ScriptableObjects
         public ulong necessarySouls => _necessarySouls;
         [SerializeField]
         public Sprite sprite;
+        //Здесь оставь звук каста
+        //Здесь оставь звук попадения
         [SerializeField]
         public int dmg;
         [SerializeField]
