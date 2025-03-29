@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.RunScripts.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,12 @@ using UnityEngine;
 namespace Assets.Scripts.RunScripts.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "EnemyInfo", menuName = "InfoPreFabs/EnemyInfo")]
-    public class EnemyInfo : ScriptableObject
+    public class EnemyInfo : ScriptableObject, IAvailableWithProgress
     {
-
+        ulong _necessarySouls;
+        
+        public ulong necessarySouls => _necessarySouls;
+        
         public float Speed { get; private set; }
 
         public int BaseDmg { get; private set; }
