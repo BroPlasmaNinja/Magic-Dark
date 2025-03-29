@@ -1,10 +1,6 @@
 ﻿using Assets.Scripts.RunScripts.Interfaces;
 using Assets.Scripts.RunScripts.ScriptableObjects;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Assets.Scripts.RunScripts
@@ -14,16 +10,16 @@ namespace Assets.Scripts.RunScripts
         // это временно для тестов (начало)
         // Или оставить чтобы балансить в будущем? Или по другой какой причеине может.
         [SerializeField]
-        private float _speed = 0.5f;
+        protected float _speed;
 
         [SerializeField]
-        private int _hp = 50;
+        protected int _hp;
 
         [SerializeField]
-        private int _baseDmg = 50;
+        protected int _baseDmg;
         // это временно для тестов (конец)
 
-        private EnemyInfo _enemyInfo;
+        protected EnemyInfo _enemyInfo;
 
         // Неизменяемый EnemyInfo
         public EnemyInfo _baseEnemyInfo { get; private set; }
@@ -35,7 +31,7 @@ namespace Assets.Scripts.RunScripts
         }
 
         // Временно чтобы заполнять поля через инспектор
-        private void Awake()
+        protected void Awake()
         {
             _enemyInfo = new EnemyInfo(_speed, _hp, _baseDmg);
         }
@@ -54,7 +50,7 @@ namespace Assets.Scripts.RunScripts
             Debug.Log("You win");
         }
 
-        public void AI()
+        public virtual void AI()
         {
             gameObject.transform.position += Vector3.Normalize(Player.ins.transform.position - gameObject.transform.position) * _enemyInfo.Speed * Time.deltaTime;
         }
