@@ -10,28 +10,44 @@ namespace Assets.Scripts.RunScripts
 {
     public class Enemy : MonoBehaviour, IDamagable
     {
-        [SerializeField] private float _speed;
+        [SerializeField]
+        private float _speed;
+
+        [SerializeField]
+        private int _hp;
+
+        [SerializeField]
+        private int _baseDmg;
 
         public event EventHandler death;
+        public void TakeDMG(int dmg)
+        {
+            if (_hp - dmg > 0) _hp -= dmg;
+            else Death();
+        }
 
         public void Death()
         {
-
-        }
-
-        public void TakeDMG()
-        {
-
+            death.Invoke(this, new EventArgs());
+            Debug.Log("You win");
         }
 
         public void AI()
         {
-            gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, Player.ins.transform.position, _speed*Time.deltaTime);
+            gameObject.transform.position += Vector3.Normalize(Player.ins.transform.position - gameObject.transform.position) * _speed * Time.deltaTime;
         }
 
         public void Update()
         {
             AI();
+        }
+
+        public void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                Player.ins.TakeDMG(_baseDmg);
+            }
         }
     }
 }

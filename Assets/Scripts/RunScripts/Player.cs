@@ -9,9 +9,12 @@ namespace Assets.Scripts.RunScripts
         [SerializeField]
         private float _speed;
 
-        public event EventHandler death;
+        [SerializeField]
+        private int _hp;
 
         public static Player ins;
+
+        public event EventHandler death;
 
         private void Awake()
         {
@@ -20,16 +23,16 @@ namespace Assets.Scripts.RunScripts
 
         public void Cast()
         {
-
         }
 
-        public void TakeDMG()
+        public void TakeDMG(int dmg)
         {
-
+            if (_hp - dmg > 0) _hp -= dmg;
+            else Death();
         }
         public void Death()
         {
-
+            death.Invoke(this, new EventArgs());
         }
 
         public void Move()
@@ -48,6 +51,5 @@ namespace Assets.Scripts.RunScripts
         {
             Move();
         }
-
     }
 }

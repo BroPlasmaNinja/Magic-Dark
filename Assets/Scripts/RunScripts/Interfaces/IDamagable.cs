@@ -4,7 +4,7 @@ namespace Assets.Scripts.RunScripts.Interfaces
 {
     public interface IDamagable
     {
-        public void TakeDMG();
+        public void TakeDMG(int dmg);
         public void Death();
 
         event EventHandler death;
