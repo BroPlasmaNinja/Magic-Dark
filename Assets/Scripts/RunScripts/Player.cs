@@ -11,6 +11,13 @@ namespace Assets.Scripts.RunScripts
 
         public event EventHandler death;
 
+        public static Player ins;
+
+        private void Awake()
+        {
+            ins = this;
+        }
+
         public void Cast()
         {
 

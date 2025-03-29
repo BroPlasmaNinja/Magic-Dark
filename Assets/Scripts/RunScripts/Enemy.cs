@@ -12,8 +12,6 @@ namespace Assets.Scripts.RunScripts
     {
         [SerializeField] private float _speed;
 
-        [SerializeField] private GameObject _player;
-
         public event EventHandler death;
 
         public void Death()
@@ -28,7 +26,7 @@ namespace Assets.Scripts.RunScripts
 
         public void AI()
         {
-            gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, _player.transform.position, _speed*Time.deltaTime);
+            gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, Player.ins.transform.position, _speed*Time.deltaTime);
         }
 
         public void Update()
