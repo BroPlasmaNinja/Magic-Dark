@@ -47,19 +47,15 @@ public sealed class RunController : MonoBehaviour
     }
     IEnumerator SpawnerWaves(Wave currentWave)
     {
-        uint buffer = currentWave.InWaveInterval.Select(x=>x.countRepeat).Aggregate((x,y) => x+=y);
-        for (int i = 0; i < currentWave.InWaveInterval.Count; i++)
+        for (int i = 0; i < currentWave.countRepeat.Count; i++)
         {
-            for(int j = 0; j < currentWave.InWaveInterval[i].countRepeat; j++)
+            for(int j = 0; j < currentWave.EnemiesCount[i]; j++)
             {
-                foreach(var enemy in currentWave.Enemies)
+                for(int k = 0; k < currentWave.countRepeat[i]; k++)
                 {
-                    for (int k = 0; k < enemy.Count; k++)
-                    {
-
-                    }
+                    // TODO ENEMY CREATE ON POSE
                 }
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(currentWave.waitTimeMs[i]);
             }
         }
         yield break;
@@ -95,6 +91,6 @@ public sealed class RunController : MonoBehaviour
             waves.Enqueue(needed);
             timer += 15;
         }
-
+        timer = 1;
     }
 }
