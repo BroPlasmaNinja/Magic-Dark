@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using Assets.Scripts.RunScripts.ScriptableObjects;
+using System;
+using System.Linq;
+using Assets.Scripts.RunScripts.Enums;
 
 public sealed class RunController : MonoBehaviour
 {
     uint Souls;
     readonly uint[] LevelUpBorders;
-    uint timer;
+    uint timer = 1;
+    event EventHandler nextWave;
+    private Queue<Wave> waves;
+    [SerializeField]
+    private uint StrongWaveTime;
 
     List<Wave> AvailableWaves;
 
@@ -33,6 +39,32 @@ public sealed class RunController : MonoBehaviour
     private void Awake()
     {
         GameManager.runController = this;
+        WavesPrepare();
         StartCoroutine(Timer());
+    }
+    private void WavesPrepare()
+    {
+        Wave[] buffer;
+        Wave needed;
+        while(timer<900)
+        {
+            if (timer%StrongWaveTime!=0) 
+            {
+                buffer = AvailableWaves.Where(x => x.MinTimer < timer && x.MaxTimer > timer).ToArray();
+                needed = buffer[GameManager.rnd.Next(0, buffer.Count())];
+            }
+            else if(timer>=885)
+            {
+                buffer = AvailableWaves.Where(x => x.MinTimer < timer && x.MaxTimer > timer && x.Type==WaveType.Boss).ToArray();
+                needed = buffer[GameManager.rnd.Next(0, buffer.Count())];
+            }
+            else
+            {
+                buffer = AvailableWaves.Where(x => x.MinTimer < timer && x.MaxTimer > timer && x.Type==WaveType.Strong).ToArray();
+                needed = buffer[GameManager.rnd.Next(0, buffer.Count())];
+            }
+            waves.Enqueue(needed);
+            timer += 15;
+        }
     }
 }
