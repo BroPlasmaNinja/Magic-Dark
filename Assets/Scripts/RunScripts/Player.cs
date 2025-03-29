@@ -1,5 +1,8 @@
 ﻿using Assets.Scripts.RunScripts.Interfaces;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 namespace Assets.Scripts.RunScripts
@@ -12,6 +15,22 @@ namespace Assets.Scripts.RunScripts
         [SerializeField]
         private int _hp;
 
+        [SerializeField]
+        private float sec;
+
+        private ushort x = 0;
+
+        private bool isImmortality = false;
+
+        public List<Spell> SpellList = new List<Spell>();
+
+        IEnumerator ShotsImmortality()
+        {
+            yield return new WaitForSeconds(sec);
+            isImmortality = false;
+            yield break;
+        }
+
         public static Player ins;
 
         public event EventHandler death;
@@ -19,6 +38,7 @@ namespace Assets.Scripts.RunScripts
         private void Awake()
         {
             ins = this;
+            StartCoroutine(RotateAnim());
         }
 
         public void Cast()
@@ -27,12 +47,18 @@ namespace Assets.Scripts.RunScripts
 
         public void TakeDMG(int dmg)
         {
-            if (_hp - dmg > 0) _hp -= dmg;
-            else Death();
+            if (!isImmortality)
+            {
+                Debug.Log($"Hp - {_hp - dmg}");
+                if (_hp - dmg > 0) _hp -= dmg;
+                else { Death(); return; }
+                isImmortality = true;
+                StartCoroutine(ShotsImmortality());
+            }
         }
         public void Death()
         {
-            death.Invoke(this, new EventArgs());
+            death.Invoke(this, new());
             Debug.Log("You lose");
         }
 
@@ -51,6 +77,16 @@ namespace Assets.Scripts.RunScripts
         public void Update()
         {
             Move();
+        }
+
+        public IEnumerator RotateAnim()
+        {
+            while (true)
+            {
+                x += 1;
+                yield return new WaitForSeconds(sec / 1000000000);
+                gameObject.transform.rotation = Quaternion.Euler(0, 0, 25f * MathF.Sin((float)x / 10));
+            }
         }
     }
 }
