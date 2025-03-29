@@ -33,6 +33,7 @@ namespace Assets.Scripts.RunScripts
         public void Death()
         {
             death.Invoke(this, new EventArgs());
+            Debug.Log("You lose");
         }
 
         public void Move()
