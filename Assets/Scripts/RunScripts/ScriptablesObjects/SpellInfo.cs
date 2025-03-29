@@ -29,28 +29,38 @@ namespace Assets.Scripts.RunScripts.ScriptableObjects
         [SerializeField]
         public float spreadAngle;
         [SerializeField]
-        public float dmgcoef;
+        public float waitBetweenProjectileMs;
         [SerializeField]
-        public float speedcoef;
+        public float dmgcoef = 1;
         [SerializeField]
-        public float cooldowncoef;
+        public float speedcoef = 1;
         [SerializeField]
-        public float countProjectilecoed;
+        public float cooldowncoef = 1;
         [SerializeField]
-        public float spreadAnglecoef;
+        public float countProjectilecoed = 1;
+        [SerializeField]
+        public float spreadAnglecoef = 1;
+        [SerializeField]
+        public float waitBetweenProjectileMscoef = 1;
         [SerializeField]
         public byte lvl;
 
-        public SpellInfo(SpellInfo info)
+        public void SetState(SpellInfo info)
         {
             sprite = info.sprite;
             dmg = info.dmg;
             speed = info.speed;
             cooldown = info.cooldown;
+            countProjectiles = info.countProjectiles;
+            spreadAnglecoef = info.spreadAnglecoef;
+            waitBetweenProjectileMs = info.waitBetweenProjectileMs;
             lvl = info.lvl;
             dmgcoef = info.dmgcoef;
             speedcoef = info.speedcoef;
             cooldowncoef = info.cooldowncoef;
+            countProjectilecoed += info.countProjectilecoed;
+            spreadAnglecoef += info.spreadAnglecoef;
+            waitBetweenProjectileMscoef += info.waitBetweenProjectileMscoef;
         }
     }
 }
