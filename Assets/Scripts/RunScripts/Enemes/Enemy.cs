@@ -9,46 +9,48 @@ namespace Assets.Scripts.RunScripts
 {
     public class Enemy : MonoBehaviour, IDamagable
     {
-        // это временно для тестов (начало)
-        // Или оставить чтобы балансить в будущем? Или по другой какой причеине может.
-        [SerializeField]
-        private float _speed;
-
-        [SerializeField]
-        private int _hp;
-
-        [SerializeField]
-        private int _baseDmg;
-
         [SerializeField]
         private float sec;
-        // это временно для тестов (конец)
-
-        private EnemyType _enemyType;
 
         private ushort x = 0;
 
-        protected EnemyInfo _enemyInfo;
+        protected EnemyInfo enemyInfo;
 
         // Неизменяемый EnemyInfo
-        public EnemyInfo _baseEnemyInfo { get; private set; }
 
-        public static GameObject CreateObject(Transform tr, Enemy en)
+        public GameObject CreateObject(Transform tr)
         {
-            return Instantiate(en.gameObject, tr);
+            GameObject objEnemy = new GameObject();
+            objEnemy.AddComponent<Enemy>().SetState(enemyInfo);
+
+            objEnemy.AddComponent<SpriteRenderer>().sprite = enemyInfo.sprite;
+
+            var rigidComp = objEnemy.AddComponent<Rigidbody2D>();
+            rigidComp.gravityScale = 0;
+            rigidComp.freezeRotation = true;
+
+            objEnemy.AddComponent<Collider2D>();
+
+            objEnemy.transform.parent = tr;
+
+            return Instantiate(objEnemy, objEnemy.transform);
         }
 
         public Enemy(EnemyInfo enemyInfo)
         {
-            _baseEnemyInfo = enemyInfo;
-            _enemyInfo = new EnemyInfo(enemyInfo);
+            this.enemyInfo = new EnemyInfo();
+            this.enemyInfo.SetState(enemyInfo);
+        }
+
+        public void SetState(EnemyInfo enemyInfo)
+        {
+            this.enemyInfo = new EnemyInfo();
+            this.enemyInfo.SetState(enemyInfo);
         }
 
         // Временно чтобы заполнять поля через инспектор
         protected void Awake()
         {
-            _enemyInfo = new EnemyInfo(_speed, _hp, _baseDmg, _enemyType);
-
             StartCoroutine(RotateAnim());
         }
 
@@ -56,7 +58,7 @@ namespace Assets.Scripts.RunScripts
 
         public void TakeDMG(int dmg)
         {
-            if (_enemyInfo.Hp - _enemyInfo.BaseDmg > 0) _enemyInfo.Hp -= _enemyInfo.BaseDmg;
+            if (enemyInfo.hp - enemyInfo.baseDmg > 0) enemyInfo.hp -= enemyInfo.baseDmg;
             else Death();
         }
 
@@ -66,9 +68,9 @@ namespace Assets.Scripts.RunScripts
             Debug.Log("You win");
         }
 
-        public virtual void AI()
+        public void AI()
         {
-            gameObject.transform.position += Vector3.Normalize(Player.ins.transform.position - gameObject.transform.position) * _enemyInfo.Speed * Time.deltaTime;
+            gameObject.transform.position += Vector3.Normalize(Player.ins.transform.position - gameObject.transform.position) * enemyInfo.speed * Time.deltaTime;
         }
 
         public void Update()
@@ -80,7 +82,7 @@ namespace Assets.Scripts.RunScripts
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                Player.ins.TakeDMG(_enemyInfo.BaseDmg);
+                Player.ins.TakeDMG(enemyInfo.baseDmg);
             }
         }
 
