@@ -24,6 +24,7 @@ namespace Assets.Scripts.RunScripts
             objEnemy.AddComponent<Enemy>().SetState(enemyInfo);
 
             objEnemy.AddComponent<SpriteRenderer>().sprite = enemyInfo.sprite;
+            objEnemy.AddComponent<SpriteRenderer>().color = enemyInfo.color;
 
             var rigidComp = objEnemy.AddComponent<Rigidbody2D>();
             rigidComp.gravityScale = 0;
@@ -70,7 +71,7 @@ namespace Assets.Scripts.RunScripts
 
         public void AI()
         {
-            gameObject.transform.position += Vector3.Normalize(Player.ins.transform.position - gameObject.transform.position) * enemyInfo.speed * Time.deltaTime;
+            gameObject.transform.position -= Vector3.Normalize(gameObject.transform.position-Player.ins.gameObject.transform.position) * enemyInfo.speed * Time.deltaTime;
         }
 
         public void Update()
@@ -92,7 +93,7 @@ namespace Assets.Scripts.RunScripts
             {
                 x += 1;
                 yield return new WaitForSeconds(sec/1000000000);
-                gameObject.transform.rotation = Quaternion.Euler(0, 0, 25f * MathF.Sin((float)x/10));
+                gameObject.transform.rotation = Quaternion.Euler(0, 0, 25f * MathF.Sin((float)x/100));
             }
         }
     }
