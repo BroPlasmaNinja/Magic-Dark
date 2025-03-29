@@ -7,9 +7,8 @@ using Unity.VisualScripting;
 public sealed class GameManager : MonoBehaviour
 {
     
-    public static RunController? runController;
+    public static RunController runController;
     public ulong Souls;
-    public Player Shama;
     private static GameManager _instance;
 
     // Публичное статическое свойство для доступа к экземпляру

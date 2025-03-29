@@ -8,7 +8,7 @@ public sealed class RunController : MonoBehaviour
 {
     uint Souls;
     readonly uint[] LevelUpBorders;
-    uint Timer;
+    uint timer;
 
     List<Wave> AvailableWaves;
 
@@ -21,4 +21,18 @@ public sealed class RunController : MonoBehaviour
 
     }
     float difficultyCoef;
+    IEnumerator Timer()
+    {
+        while (true)
+        {
+            timer += 1;
+            Debug.Log(timer);
+            yield return new WaitForSeconds(1);
+        }
+    }
+    private void Awake()
+    {
+        GameManager.runController = this;
+        StartCoroutine(Timer());
+    }
 }
