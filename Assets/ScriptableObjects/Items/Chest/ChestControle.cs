@@ -8,7 +8,6 @@ public class ChestSpawner : MonoBehaviour
     public float spawnRadius = 5f;  // Радиус вокруг героя, где будут спауниться сундуки
     public float minSpawnTime = 30f;  // Минимальное время между спауном сундуков (в секундах)
     public float maxSpawnTime = 60f;  // Максимальное время между спауном сундуков (в секундах)
-    public float interactionRange = 2f;  // Радиус, при котором сундук будет удален (герой рядом с сундуком)
 
     private Transform heroTransform;  // Ссылка на трансформ героя
 
@@ -31,48 +30,35 @@ public class ChestSpawner : MonoBehaviour
             // Ждем случайное время перед спауном нового сундука
             yield return new WaitForSeconds(spawnDelay);
 
-            // Проверяем, есть ли уже сундуки на сцене
-            if (GameObject.FindGameObjectsWithTag("Chest").Length == 0)  // Используем тег для сундуков
-            {
-                // Генерируем случайную позицию в радиусе от героя
-                Vector3 spawnPosition = heroTransform.position + new Vector3(
-                    Random.Range(-spawnRadius, spawnRadius),  // Случайное смещение по X
-                    Random.Range(-spawnRadius, spawnRadius),  // Случайное смещение по Y
-                    0);  // Сундук будет спауниться на той же высоте, что и герой
+            // Генерируем случайную позицию в радиусе от героя
+            Vector3 spawnPosition = heroTransform.position + new Vector3(
+                Random.Range(-spawnRadius, spawnRadius),  // Случайное смещение по X
+                Random.Range(-spawnRadius, spawnRadius),  // Случайное смещение по Y
+                0);  // Сундук будет спауниться на той же высоте, что и герой
 
-                // Создаем сундук на вычисленной позиции
-                GameObject newChest = Instantiate(chestPrefab, spawnPosition, Quaternion.identity);
+            // Создаем сундук на вычисленной позиции
+            GameObject newChest = Instantiate(chestPrefab, spawnPosition, Quaternion.identity);
 
-                // Тегируем сундук для проверки наличия сундуков
-                newChest.tag = "Chest";  // Присваиваем тег "Chest"
+            // Тегируем сундук для проверки наличия сундуков
+            newChest.tag = "Chest";  // Присваиваем тег "Chest"
 
-                Debug.Log("Сундук появился на позиции: " + spawnPosition);
-
-                // Запускаем проверку на удаление сундука, если герой рядом
-                StartCoroutine(CheckForChestInteraction(newChest, spawnPosition));
-            }
+            Debug.Log("Сундук появился на позиции: " + spawnPosition);
         }
     }
 
-    // Корутина для проверки расстояния между сундуком и героем
-    IEnumerator CheckForChestInteraction(GameObject chest, Vector3 spawnPosition)
+    // Этот метод будет вызываться при столкновении с коллайдером
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        while (chest != null)
+        // Проверяем, если это герой, который столкнулся с сундуком
+        if (collision.gameObject.CompareTag("Chest"))
         {
-            // Проверяем расстояние между сундуком и героем
-            if (Vector3.Distance(heroTransform.position, chest.transform.position) < interactionRange)
-            {
-                // Если герой рядом с сундуком, удаляем его
-                Debug.Log("Сундук удален, так как герой рядом");
+            // Выпадает случайный предмет из списка
+            DropRandomItem(transform.position);
 
-                // Выпадает случайный предмет из списка
-                DropRandomItem(spawnPosition);
+            // Удаляем сундук
+            Destroy(gameObject);
 
-                // Удаляем сундук
-                Destroy(chest);
-                break;
-            }
-            yield return null;  // Пауза между проверками
+            Debug.Log("Сундук удален, так как герой столкнулся с ним!");
         }
     }
 
