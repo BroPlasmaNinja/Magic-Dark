@@ -15,8 +15,15 @@ public sealed class RunController : MonoBehaviour
     private Queue<Wave> waves;
     [SerializeField]
     private uint StrongWaveTime;
-
+    [SerializeField]
+    private uint TimeBetweenWaves;
+    [SerializeField]
     List<Wave> AvailableWaves;
+
+    private void StartSpawnWave(object sender, EventArgs args)
+    {
+
+    }
 
     void OnEnd()
     {
@@ -38,10 +45,30 @@ public sealed class RunController : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
     }
+    IEnumerator SpawnerWaves(Wave currentWave)
+    {
+        uint buffer = currentWave.InWaveInterval.Select(x=>x.countRepeat).Aggregate((x,y) => x+=y);
+        for (int i = 0; i < currentWave.InWaveInterval.Count; i++)
+        {
+            for(int j = 0; j < currentWave.InWaveInterval[i].countRepeat; j++)
+            {
+                foreach(var enemy in currentWave.Enemies)
+                {
+                    for (int k = 0; k < enemy.Count; k++)
+                    {
+
+                    }
+                }
+                yield return new WaitForSeconds(1);
+            }
+        }
+        yield break;
+    }
     private void Awake()
     {
         GameManager.runController = this;
         WavesPrepare();
+        nextWave += StartSpawnWave;
         StartCoroutine(Timer());
     }
     private void WavesPrepare()

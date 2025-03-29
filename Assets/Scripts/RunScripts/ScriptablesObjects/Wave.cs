@@ -10,7 +10,7 @@ namespace Assets.Scripts.RunScripts.ScriptableObjects
     {
         [SerializeField] 
         public List<(EnemyInfo, int Count)> Enemies;
-        public List<(uint count, uint waitTime)> InWaveInterval;
+        public List<(uint countRepeat, uint waitTimeMs)> InWaveInterval;
         [SerializeField]
         public uint MinTimer;
         [SerializeField]
