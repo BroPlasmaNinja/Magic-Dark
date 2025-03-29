@@ -27,8 +27,14 @@ namespace Assets.Scripts.RunScripts
 
         public void Move()
         {
-            gameObject.transform.position += new Vector3(0, _speed * Input.GetAxis("Vertical"), 0);
-            gameObject.transform.position += new Vector3(_speed * Input.GetAxis("Horizontal"), 0, 0);
+            if ((Vector3.right * Input.GetAxis("Horizontal") + Vector3.up * Input.GetAxis("Vertical")).magnitude > 1)
+            {
+                gameObject.transform.position += Vector3.Normalize((Vector3.right * Input.GetAxis("Horizontal") + Vector3.up * Input.GetAxis("Vertical"))) * _speed * Time.deltaTime;
+            }
+            else
+            {
+                gameObject.transform.position += (Vector3.right * Input.GetAxis("Horizontal") + Vector3.up * Input.GetAxis("Vertical")) * _speed * Time.deltaTime;
+            }
         }
 
         public void Update()
