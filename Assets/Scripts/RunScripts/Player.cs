@@ -9,32 +9,47 @@ namespace Assets.Scripts.RunScripts
         [SerializeField]
         private float _speed;
 
+        [SerializeField]
+        private int _hp;
+
+        public static Player ins;
+
         public event EventHandler death;
+
+        private void Awake()
+        {
+            ins = this;
+        }
 
         public void Cast()
         {
-
         }
 
-        public void TakeDMG()
+        public void TakeDMG(int dmg)
         {
-
+            if (_hp - dmg > 0) _hp -= dmg;
+            else Death();
         }
         public void Death()
         {
-
+            death.Invoke(this, new EventArgs());
         }
 
         public void Move()
         {
-            gameObject.transform.position += new Vector3(0, _speed * Input.GetAxis("Vertical"), 0);
-            gameObject.transform.position += new Vector3(_speed * Input.GetAxis("Horizontal"), 0, 0);
+            if ((Vector3.right * Input.GetAxis("Horizontal") + Vector3.up * Input.GetAxis("Vertical")).magnitude > 1)
+            {
+                gameObject.transform.position += Vector3.Normalize((Vector3.right * Input.GetAxis("Horizontal") + Vector3.up * Input.GetAxis("Vertical"))) * _speed * Time.deltaTime;
+            }
+            else
+            {
+                gameObject.transform.position += (Vector3.right * Input.GetAxis("Horizontal") + Vector3.up * Input.GetAxis("Vertical")) * _speed * Time.deltaTime;
+            }
         }
 
         public void Update()
         {
             Move();
         }
-
     }
 }
