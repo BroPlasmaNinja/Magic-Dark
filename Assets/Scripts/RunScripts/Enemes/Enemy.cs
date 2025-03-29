@@ -1,7 +1,9 @@
 ﻿using Assets.Scripts.RunScripts.Interfaces;
 using Assets.Scripts.RunScripts.ScriptableObjects;
 using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngineInternal;
 
 namespace Assets.Scripts.RunScripts
 {
@@ -19,18 +21,22 @@ namespace Assets.Scripts.RunScripts
         private int _baseDmg;
 
         [SerializeField]
-        private Animation _animation;
+        private float sec;
         // это временно для тестов (конец)
+
+        private EnemyType _enemyType;
+
+        private ushort x = 0;
 
         protected EnemyInfo _enemyInfo;
 
         // Неизменяемый EnemyInfo
         public EnemyInfo _baseEnemyInfo { get; private set; }
 
-        //public static GameObject CreateObject(Transform tr, Enemy en)
-        //{
-        //    return GameObject.Instantiate();
-        //}
+        public static GameObject CreateObject(Transform tr, Enemy en)
+        {
+            return Instantiate(en.gameObject, tr);
+        }
 
         public Enemy(EnemyInfo enemyInfo)
         {
@@ -41,8 +47,9 @@ namespace Assets.Scripts.RunScripts
         // Временно чтобы заполнять поля через инспектор
         protected void Awake()
         {
-            _enemyInfo = new EnemyInfo(_speed, _hp, _baseDmg, _animation);
-            _animation.Play();
+            _enemyInfo = new EnemyInfo(_speed, _hp, _baseDmg, _enemyType);
+
+            StartCoroutine(RotateAnim());
         }
 
         public event EventHandler death;
@@ -74,6 +81,16 @@ namespace Assets.Scripts.RunScripts
             if (collision.gameObject.CompareTag("Player"))
             {
                 Player.ins.TakeDMG(_enemyInfo.BaseDmg);
+            }
+        }
+
+        public IEnumerator RotateAnim()
+        {
+            while (true)
+            {
+                x += 1;
+                yield return new WaitForSeconds(sec/1000000000);
+                gameObject.transform.rotation = Quaternion.Euler(0, 0, 25f * MathF.Sin((float)x/10));
             }
         }
     }
