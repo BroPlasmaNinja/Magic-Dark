@@ -10,19 +10,27 @@ namespace Assets.Scripts.RunScripts
         // это временно для тестов (начало)
         // Или оставить чтобы балансить в будущем? Или по другой какой причеине может.
         [SerializeField]
-        protected float _speed;
+        private float _speed;
 
         [SerializeField]
-        protected int _hp;
+        private int _hp;
 
         [SerializeField]
-        protected int _baseDmg;
+        private int _baseDmg;
+
+        [SerializeField]
+        private Animation _animation;
         // это временно для тестов (конец)
 
         protected EnemyInfo _enemyInfo;
 
         // Неизменяемый EnemyInfo
         public EnemyInfo _baseEnemyInfo { get; private set; }
+
+        //public static GameObject CreateObject(Transform tr, Enemy en)
+        //{
+        //    return GameObject.Instantiate();
+        //}
 
         public Enemy(EnemyInfo enemyInfo)
         {
@@ -33,7 +41,8 @@ namespace Assets.Scripts.RunScripts
         // Временно чтобы заполнять поля через инспектор
         protected void Awake()
         {
-            _enemyInfo = new EnemyInfo(_speed, _hp, _baseDmg);
+            _enemyInfo = new EnemyInfo(_speed, _hp, _baseDmg, _animation);
+            _animation.Play();
         }
 
         public event EventHandler death;

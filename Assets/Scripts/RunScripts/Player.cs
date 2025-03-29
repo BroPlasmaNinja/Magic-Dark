@@ -1,5 +1,7 @@
 ﻿using Assets.Scripts.RunScripts.Interfaces;
 using System;
+using System.Collections;
+using System.Threading;
 using UnityEngine;
 
 namespace Assets.Scripts.RunScripts
@@ -11,6 +13,18 @@ namespace Assets.Scripts.RunScripts
 
         [SerializeField]
         private int _hp;
+
+        [SerializeField]
+        private float sec;
+
+        private bool isImmortality = false;
+
+        IEnumerator ShotsImmortality()
+        {
+            yield return new WaitForSeconds(sec);
+            isImmortality = false;
+            yield break;
+        }
 
         public static Player ins;
 
@@ -27,12 +41,18 @@ namespace Assets.Scripts.RunScripts
 
         public void TakeDMG(int dmg)
         {
-            if (_hp - dmg > 0) _hp -= dmg;
-            else Death();
+            if (!isImmortality)
+            {
+                Debug.Log($"Hp - {_hp - dmg}");
+                if (_hp - dmg > 0) _hp -= dmg;
+                else { Death(); return; }
+                isImmortality = true;
+                StartCoroutine(ShotsImmortality());
+            }
         }
         public void Death()
         {
-            death.Invoke(this, new EventArgs());
+            death.Invoke(this, new());
             Debug.Log("You lose");
         }
 
