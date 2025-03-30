@@ -21,14 +21,17 @@ namespace Assets.Scripts.RunScripts
             rigidComp.gravityScale = 0;
             rigidComp.freezeRotation = true;
 
-            objEnemy.AddComponent<BoxCollider2D>();
+            var boxComp = objEnemy.AddComponent<BoxCollider2D>();
+            boxComp.size /= 4;
 
             var spriteComp = objEnemy.AddComponent<SpriteRenderer>();
             spriteComp.sprite = enemyInfo.sprite;
             spriteComp.color = enemyInfo.color;
+            spriteComp.sortingOrder = 3;
 
             objEnemy.transform.parent = tr;
             objEnemy.tag = "Enemy";
+            objEnemy.transform.localScale *= 3;
 
             return objEnemy;
         }

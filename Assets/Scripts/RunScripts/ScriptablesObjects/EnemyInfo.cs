@@ -37,6 +37,7 @@ namespace Assets.Scripts.RunScripts.ScriptableObjects
             baseDmg = enemyInfo.baseDmg;
             sprite = enemyInfo.sprite;
             sprite = enemyInfo.sprite;
+            color = enemyInfo.color;
         }
 
         public EnemyInfo() { }
@@ -48,6 +49,7 @@ namespace Assets.Scripts.RunScripts.ScriptableObjects
             baseDmg = enemyInfo.baseDmg;
             sprite = enemyInfo.sprite;
             sprite = enemyInfo.sprite;
+            color = enemyInfo.color;
         }
     }
 }
