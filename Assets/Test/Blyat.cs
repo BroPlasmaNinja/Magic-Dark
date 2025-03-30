@@ -1,18 +1,15 @@
+using Assets.Scripts.RunScripts.ScriptableObjects;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Assets.Scripts.RunScripts;
 
 public class Blyat : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    EnemyInfo enemyInfo;
+    private void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        var en = new Enemy(new EnemyInfo(enemyInfo)).CreateObject(null);
     }
 }
