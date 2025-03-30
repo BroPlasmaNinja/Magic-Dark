@@ -224,6 +224,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 536552746}
+  - component: {fileID: 536552747}
   m_Layer: 0
   m_Name: Ebychaya droch
   m_TagString: Untagged
@@ -246,6 +247,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &536552747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536552745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c7f420fdd8dfe4da8bac4e0a057918, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyInfo: {fileID: 11400000, guid: 67608082cc0494b46a06fb14cdfc39a9, type: 2}
 --- !u!1 &1039281858
 GameObject:
   m_ObjectHideFlags: 0
