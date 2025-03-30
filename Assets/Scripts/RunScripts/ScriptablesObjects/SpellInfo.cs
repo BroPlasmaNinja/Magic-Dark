@@ -57,12 +57,12 @@ namespace Assets.Scripts.RunScripts.ScriptableObjects
         public void SetState(SpellInfo info)
         {
             sprite = info.sprite;
-            dmg = info.dmg;
-            speed = info.speed;
-            cooldown = info.cooldown;
-            countProjectiles = info.countProjectiles;
-            spreadAnglecoef = info.spreadAnglecoef;
-            waitBetweenProjectileMs = info.waitBetweenProjectileMs;
+            _basedmg = info.dmg;
+            _basespeed = info.speed;
+            _basecooldown = info.cooldown;
+            _basecountProjectiles = info.countProjectiles;
+            _basespreadAngle = info.spreadAnglecoef;
+            _basewaitBetweenProjectileMs = info.waitBetweenProjectileMs;
             lvl = info.lvl;
             dmgcoef = info.dmgcoef;
             speedcoef = info.speedcoef;
