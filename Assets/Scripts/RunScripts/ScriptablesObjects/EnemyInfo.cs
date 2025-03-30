@@ -9,33 +9,50 @@ using UnityEngine;
 namespace Assets.Scripts.RunScripts.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "EnemyInfo", menuName = "InfoPreFabs/EnemyInfo")]
-    public class EnemyInfo : ScriptableObject, IAvailableWithProgress
+    public class EnemyInfo : ScriptableObject
     {
+
+        [SerializeField]
         ulong _necessarySouls;
-        
+
         public ulong necessarySouls => _necessarySouls;
-        
-        public float Speed { get; private set; }
 
-        public int BaseDmg { get; private set; }
+        [SerializeField]
+        public float speed;
 
-        public int Hp { get; set; }
+        [SerializeField]
+        public int baseDmg;
 
-        public EnemyType EnemyType { get; private set; }
+        [SerializeField]
+        public int hp;
+
+        [SerializeField]
+        public EnemyType enemyType;
+
+        [SerializeField]
+        public Sprite sprite;
+
+        [SerializeField]
+        public Color color;
+
+        public void SetState(EnemyInfo enemyInfo)
+        {
+            speed = enemyInfo.speed;
+            hp = enemyInfo.hp;
+            baseDmg = enemyInfo.baseDmg;
+            sprite = enemyInfo.sprite;
+            sprite = enemyInfo.sprite;
+        }
+
+        public EnemyInfo() { }
 
         public EnemyInfo(EnemyInfo enemyInfo)
         {
-            Speed = enemyInfo.Speed;
-            Hp = enemyInfo.Hp;
-            BaseDmg = enemyInfo.BaseDmg;
-            EnemyType = enemyInfo.EnemyType;
-        }
-        public EnemyInfo(float speed, int hp, int baseDmg, EnemyType eTypy)
-        {
-            Speed += speed;
-            Hp = hp;
-            BaseDmg = baseDmg;
-            EnemyType = eTypy;
+            speed = enemyInfo.speed;
+            hp = enemyInfo.hp;
+            baseDmg = enemyInfo.baseDmg;
+            sprite = enemyInfo.sprite;
+            sprite = enemyInfo.sprite;
         }
     }
 }

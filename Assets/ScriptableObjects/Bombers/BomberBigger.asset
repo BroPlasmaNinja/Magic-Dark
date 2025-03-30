@@ -12,3 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61e21adf61b768248bacacdb752e4c72, type: 3}
   m_Name: BomberBigger
   m_EditorClassIdentifier: 
+  _necessarySouls: 0
+  speed: 3
+  baseDmg: 35
+  hp: 150
+  enemyType: 3
+  sprite: {fileID: 21300000, guid: 91439f3b3d750934093ff800bb7e8720, type: 3}
+  color: {r: 0.78431374, g: 0.39215687, b: 1, a: 0}

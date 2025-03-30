@@ -12,3 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61e21adf61b768248bacacdb752e4c72, type: 3}
   m_Name: Common
   m_EditorClassIdentifier: 
+  _necessarySouls: 0
+  speed: 3
+  baseDmg: 20
+  hp: 70
+  enemyType: 0
+  sprite: {fileID: 21300000, guid: fc49ae27d86a9584dbe16e9ab830fb53, type: 3}
+  color: {r: 0.39215687, g: 0.78431374, b: 1, a: 0}

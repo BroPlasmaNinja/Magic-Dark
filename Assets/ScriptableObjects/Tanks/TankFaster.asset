@@ -12,3 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61e21adf61b768248bacacdb752e4c72, type: 3}
   m_Name: TankFaster
   m_EditorClassIdentifier: 
+  _necessarySouls: 0
+  speed: 3
+  baseDmg: 20
+  hp: 150
+  enemyType: 1
+  sprite: {fileID: 21300000, guid: 7c41b77453baf3d429ed97dcdf490a2c, type: 3}
+  color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 0}
