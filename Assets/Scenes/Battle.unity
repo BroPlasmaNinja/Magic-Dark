@@ -13963,10 +13963,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2f7c4b67ce9ec9d45925affdab802243, type: 2}
   - {fileID: 11400000, guid: eb43613e289ab8b4fbc9cd0a7b617bbf, type: 2}
   - {fileID: 11400000, guid: 15b93beeb17fe6d46919239fee0c49d0, type: 2}
-  SpellList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  SpellList: []
 --- !u!212 &1521918628
 SpriteRenderer:
   m_ObjectHideFlags: 0

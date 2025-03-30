@@ -23,14 +23,17 @@ namespace Assets.Scripts.RunScripts
         public void PickFirst()
         {
             crutch[0].state.lvl++;
+            TurnOff();
         }
         public void PickSecond()
         {
             crutch[1].state.lvl++;
+            TurnOff();
         }
         public void PickThird()
         {
             crutch[2].state.lvl++;
+            TurnOff();
         }
         public void TurnOff()
         {
@@ -44,7 +47,7 @@ namespace Assets.Scripts.RunScripts
         private void TurnOn(object sender, EventArgs e)
         {
             UIRoot.SetActive(true);
-            if(crutch == null)
+            if(crutch.Length == 0)
                 crutch = Player.ins.SpellList.ToArray();
         }
     }
