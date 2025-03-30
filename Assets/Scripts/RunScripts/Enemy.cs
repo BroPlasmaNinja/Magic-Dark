@@ -62,7 +62,7 @@ namespace Assets.Scripts.RunScripts
         public void Death()
         {
             Destroy(gameObject);
-            GameManager.Instance.Souls += 10;
+            GameManager.runController.Souls+= 10;
         }
 
         public void AI()
