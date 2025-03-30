@@ -14,12 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemiesList:
   - {fileID: 11400000, guid: 67608082cc0494b46a06fb14cdfc39a9, type: 2}
-  - {fileID: 11400000, guid: 7ec581ec55225f747a7b0cbff1d43b54, type: 2}
-  - {fileID: 11400000, guid: d5d38df6475d68f42afd457a2edf3465, type: 2}
-  EnemiesCount: 320000000f00000005000000
-  countRepeat: 02000000
-  waitTimeMs: 0f000000
+  - {fileID: 11400000, guid: 1de4bae55081d0445a5215614fa3d7b0, type: 2}
+  - {fileID: 11400000, guid: b9606e2a0d78f514db4f0bdc23a6238d, type: 2}
+  - {fileID: 11400000, guid: 67b1c3b15c3da3a4da80e249ac4341d5, type: 2}
+  EnemiesCount: 140000000f0000000a0000000a000000
+  countRepeat: 02000000020000000200000002000000
+  waitTimeMs: 0f0000000f0000000f0000000f000000
   MinTimer: 0
   MaxTimer: 900
   _necessarySouls: 0
-  Type: 0
+  Type: 2

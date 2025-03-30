@@ -12875,8 +12875,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5e8cbe1e6fb83b444bf6fcedbb6e473f, type: 2}
   - {fileID: 11400000, guid: 51f672aacf2499d4e9e90c6bd717d26c, type: 2}
   - {fileID: 11400000, guid: bceaff7149bebe747be05afe0f64678e, type: 2}
-  - {fileID: 11400000, guid: 3c84c84cf4841c34a8b1c631524b3e91, type: 2}
-  - {fileID: 11400000, guid: a0d2216413b3bf74190a30a449a958bf, type: 2}
   - {fileID: 11400000, guid: 89248c9dc60fcbd4e932a4c88109404c, type: 2}
   spawnRadius: 10
   minSpawnRadius: 5

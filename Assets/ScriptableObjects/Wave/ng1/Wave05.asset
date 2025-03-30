@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemiesList:
   - {fileID: 11400000, guid: 67608082cc0494b46a06fb14cdfc39a9, type: 2}
-  - {fileID: 11400000, guid: 7ec581ec55225f747a7b0cbff1d43b54, type: 2}
+  - {fileID: 11400000, guid: f1637560f5b57b44986f246c7a90d300, type: 2}
   EnemiesCount: 2d00000014000000
-  countRepeat: 02000000
-  waitTimeMs: 0f000000
+  countRepeat: 0200000002000000
+  waitTimeMs: 0f0000000f000000
   MinTimer: 0
   MaxTimer: 900
   _necessarySouls: 0
