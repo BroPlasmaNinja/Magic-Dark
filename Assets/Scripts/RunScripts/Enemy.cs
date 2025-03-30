@@ -31,6 +31,7 @@ namespace Assets.Scripts.RunScripts
 
             objEnemy.transform.parent = tr;
             objEnemy.tag = "Enemy";
+            objEnemy.layer = 9;
             objEnemy.transform.localScale *= 3;
 
             return objEnemy;

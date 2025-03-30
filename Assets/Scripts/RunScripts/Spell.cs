@@ -36,11 +36,13 @@ namespace Assets.Scripts.RunScripts
         {
             GameObject gm = new GameObject();
             gm.AddComponent<Spell>().SetState(state);
-            gm.AddComponent<SpriteRenderer>().sprite = state.sprite;
+            var sp = gm.AddComponent<SpriteRenderer>();
+            sp.sprite = state.sprite;
+            sp.sortingOrder = 4;
             var rb2d = gm.AddComponent<Rigidbody2D>();
             rb2d.gravityScale = 0;
             gm.AddComponent<CircleCollider2D>();
-            gm.layer = 7;
+
             Debug.Log("amogus");
             return gm;
         }
