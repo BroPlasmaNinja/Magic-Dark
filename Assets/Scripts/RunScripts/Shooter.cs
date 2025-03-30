@@ -24,13 +24,11 @@ public class Shooter : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.LogWarning("¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿, Õ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈√–€€€€€€€€€€€€€€€€€€!!!!!!!!!!!");
         if (collision.gameObject.CompareTag("Enemy"))
             Enemies.Add(collision.gameObject);
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.LogWarning("‘Ûı, ÔÓÌÂÒÎÓ");
         if (collision.gameObject.CompareTag("Enemy"))
             Enemies.Remove(collision.gameObject);
     }
