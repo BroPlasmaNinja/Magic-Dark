@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Fireball
   m_EditorClassIdentifier: 
   sprite: {fileID: -410618471, guid: 7b006736acaa6554088301ebf416f2bf, type: 3}
-  castSound: {fileID: 0}
-  bangSound: {fileID: 0}
+  castSound: {fileID: 8300000, guid: 6819cf8a5e0f367408dc127683395c30, type: 3}
+  bangSound: {fileID: 8300000, guid: a19e5f5c667d4704196184ff5584023e, type: 3}
   _basedmg: 25
   _basespeed: 3
   _basecooldown: 1.5

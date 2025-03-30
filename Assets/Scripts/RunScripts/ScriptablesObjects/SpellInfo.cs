@@ -17,9 +17,9 @@ namespace Assets.Scripts.RunScripts.ScriptableObjects
         [SerializeField]
         public Sprite sprite;
         [SerializeField]
-        public AudioSource castSound;
+        public AudioClip castSound;
         [SerializeField]
-        public AudioSource bangSound;
+        public AudioClip bangSound;
         [SerializeField]
         private int _basedmg;
         [SerializeField]
