@@ -52,7 +52,7 @@ namespace Assets.Scripts.RunScripts.ScriptableObjects
         [SerializeField]
         public float waitBetweenProjectileMscoef = 1;
         [SerializeField]
-        public byte lvl;
+        public byte lvl = 1;
 
         public void SetState(SpellInfo info)
         {

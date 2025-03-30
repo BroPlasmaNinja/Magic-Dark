@@ -9,8 +9,16 @@ using Assets.Scripts.RunScripts;
 
 public sealed class RunController : MonoBehaviour
 {
-    uint Souls;
+    public uint Souls { set
+        {
+            _souls = value;
+            LvlChecking();
+        }
+    }
+    private uint _souls = 0;
+    [SerializeField]
     readonly uint[] LevelUpBorders;
+    Queue<uint> _levelUpBordersQueue;
     uint timer = 1;
     event EventHandler nextWave;
     private Queue<Wave> waves;
@@ -24,7 +32,15 @@ public sealed class RunController : MonoBehaviour
     public Transform playerTransform; // Трансформация игрока (героя)
     public float spawnRadius = 10f; // Радиус, в котором будут спавниться враги
     public float minSpawnRadius = 5f; // Минимальный радиус, чтобы враги не спавнились слишком близко к игроку
+    event EventHandler LVLUP;
 
+    private void LvlChecking()
+    {
+        if (_levelUpBordersQueue.First() < _souls)
+        {
+            LVLUP.Invoke(this, new EventArgs());
+        }
+    }
 
     private void StartSpawnWave(object sender, EventArgs args)
     {
@@ -97,6 +113,10 @@ public sealed class RunController : MonoBehaviour
     private void Awake()
     {
         GameManager.runController = this;
+        foreach (var item in LevelUpBorders)
+        {
+            _levelUpBordersQueue.Enqueue(item);
+        }
         WavesPrepare();
         nextWave += StartSpawnWave;
         StartCoroutine(Timer());
