@@ -5,6 +5,7 @@ using Assets.Scripts.RunScripts.ScriptableObjects;
 using System;
 using System.Linq;
 using Assets.Scripts.RunScripts.Enums;
+using Assets.Scripts.RunScripts;
 
 public sealed class RunController : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public sealed class RunController : MonoBehaviour
 
     private void StartSpawnWave(object sender, EventArgs args)
     {
-
+        StartCoroutine(SpawnerWaves(waves.Peek()));
     }
 
     void OnEnd()
@@ -60,10 +61,10 @@ public sealed class RunController : MonoBehaviour
                 {
                     // Создание врага в случайной точке в радиусе от игрока
                     Vector3 spawnPosition = GetRandomSpawnPosition();
-                    GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
-
-                    // TODO: добавить логику настройки врага, если необходимо, например,
-                    // enemy.GetComponent<Enemy>().SetTarget(playerTransform);
+                    foreach (var enemy in currentWave.EnemiesList)
+                    {
+                        new Enemy(enemy).CreateObject(null).transform.position = spawnPosition;
+                    }
 
                 }
                 yield return new WaitForSeconds(currentWave.waitTimeMs[i]);
