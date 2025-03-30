@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Water
   m_EditorClassIdentifier: 
   sprite: {fileID: -380545855, guid: 073d8e744604c1d43acd51439d84fb8c, type: 3}
-  castSound: {fileID: 0}
+  castSound: {fileID: 8300000, guid: 7c8360e674424ba41bb49952a91d4166, type: 3}
   bangSound: {fileID: 0}
   _basedmg: 20
   _basespeed: 3

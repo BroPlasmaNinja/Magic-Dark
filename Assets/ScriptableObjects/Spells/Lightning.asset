@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Lightning
   m_EditorClassIdentifier: 
   sprite: {fileID: 1188749613, guid: d47f124897bc86c4db988ba88316a9de, type: 3}
-  castSound: {fileID: 0}
-  bangSound: {fileID: 0}
+  castSound: {fileID: 8300000, guid: 2fbf081c17362c54b84a39e1d2e93996, type: 3}
+  bangSound: {fileID: 8300000, guid: c60fe86e6f7ff384abb87f3759478ef4, type: 3}
   _basedmg: 15
   _basespeed: 4
   _basecooldown: 1
