@@ -29,6 +29,7 @@ namespace Assets.Scripts.RunScripts
             if (collision.gameObject.CompareTag("Enemy"))
             {
                 collision.gameObject.GetComponent<Enemy>().TakeDMG(state.dmg);
+                Destroy(gameObject);
             }
         }
         public GameObject CreateObject(Transform tr)
@@ -43,7 +44,6 @@ namespace Assets.Scripts.RunScripts
 
             return gm;
         }
-
         
 
     }

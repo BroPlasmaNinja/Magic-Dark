@@ -11,5 +11,6 @@ public class Blyat : MonoBehaviour
     private void Start()
     {
         var en = new Enemy(new EnemyInfo(enemyInfo)).CreateObject(null);
+        en.transform.position = transform.position;
     }
 }
