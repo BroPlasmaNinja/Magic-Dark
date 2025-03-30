@@ -47,7 +47,6 @@ public class Shooter : MonoBehaviour
                     var VectorAfterSpread = (((closestEnemy.transform.position - transform.position).normalized.y / (closestEnemy.transform.position - transform.position).normalized.x) + GameManager.rnd.Next(-(int)spell.state.spreadAngle, (int)spell.state.spreadAngle));
                     go.GetComponent<Rigidbody2D>().AddForce(new Vector2(Mathf.Cos(VectorAfterSpread), Mathf.Sin(VectorAfterSpread)) * spell.state.speed);
                     go.transform.position = transform.position;
-                    //Instantiate(go, null);
                     yield return new WaitForSeconds(spell.state.waitBetweenProjectileMs / 1000);
                 }
         }
