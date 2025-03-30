@@ -14,6 +14,10 @@ public sealed class RunController : MonoBehaviour
             _souls = value;
             LvlChecking();
         }
+        get
+        {
+            return _souls;
+        }
     }
     private uint _souls = 0;
     [SerializeField]
