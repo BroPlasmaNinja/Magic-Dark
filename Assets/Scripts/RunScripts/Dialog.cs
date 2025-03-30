@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.RunScripts
 {
-    internal struct Dialog
+    public struct Dialog
     {
+
     }
 }
