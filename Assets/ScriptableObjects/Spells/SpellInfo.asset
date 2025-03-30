@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: bfb394395c54dae41beab0a0a9557257, type: 3}
   dmg: 3
-  speed: 5
+  speed: 20
   cooldown: 1
   countProjectiles: 2
   spreadAngle: 10
