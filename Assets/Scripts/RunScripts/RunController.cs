@@ -12,6 +12,7 @@ public sealed class RunController : MonoBehaviour
     public uint Souls { set
         {
             _souls = value;
+            LvlChecking();
         }
         get
         {
@@ -46,6 +47,7 @@ public sealed class RunController : MonoBehaviour
     {
         if (_levelUpBordersQueue.First() < _souls)
         {
+            _souls = 0;
             LVLUP.Invoke(this, new EventArgs());
         }
     }
