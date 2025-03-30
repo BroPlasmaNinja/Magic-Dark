@@ -44,7 +44,7 @@ namespace Assets.Scripts.RunScripts
             this.enemyInfo.SetState(enemyInfo);
         }
 
-        // Временно чтобы заполнять поля через инспектор
+        // Временно чтобы заполнять поля через инспектор (Тут был ОЛег)
         protected void Awake()
         {
             StartCoroutine(RotateAnim());
