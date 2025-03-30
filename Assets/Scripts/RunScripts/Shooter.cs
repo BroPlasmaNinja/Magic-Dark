@@ -38,7 +38,7 @@ public class Shooter : MonoBehaviour
                     var GoalVector = (closestEnemy.transform.position - transform.position).normalized;
                     go.transform.position = transform.position;
                     go.GetComponent<Rigidbody2D>().velocity = new Vector2(GoalVector.x, GoalVector.y);
-                    Debug.LogWarning("Пау");
+                    go.GetComponent<AudioSource>().PlayOneShot(spell.state.castSound);
                     yield return new WaitForSeconds(spell.state.waitBetweenProjectileMs / 1000);
                 }
         }

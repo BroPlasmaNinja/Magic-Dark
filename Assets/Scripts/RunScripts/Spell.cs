@@ -29,6 +29,7 @@ namespace Assets.Scripts.RunScripts
             if (collision.gameObject.CompareTag("Enemy"))
             {
                 collision.gameObject.GetComponent<Enemy>().TakeDMG(state.dmg);
+                transform.GetComponent<AudioSource>().PlayOneShot(state.bangSound);
                 Destroy(gameObject);
             }
         }
@@ -42,6 +43,7 @@ namespace Assets.Scripts.RunScripts
             var rb2d = gm.AddComponent<Rigidbody2D>();
             rb2d.gravityScale = 0;
             gm.AddComponent<CircleCollider2D>();
+            gm.AddComponent<AudioSource>();
             gm.layer = 7;
 
             return gm;
