@@ -21,7 +21,7 @@ public sealed class RunController : MonoBehaviour
     }
     private uint _souls = 0;
     [SerializeField]
-    readonly uint[] LevelUpBorders;
+    private uint[] LevelUpBorders;
     Queue<uint> _levelUpBordersQueue;
     uint timer = 1;
     event EventHandler nextWave;
@@ -36,7 +36,13 @@ public sealed class RunController : MonoBehaviour
     public Transform playerTransform; // Трансформация игрока (героя)
     public float spawnRadius = 10f; // Радиус, в котором будут спавниться враги
     public float minSpawnRadius = 5f; // Минимальный радиус, чтобы враги не спавнились слишком близко к игроку
-    event EventHandler LVLUP;
+    public event EventHandler LVLUP;
+
+
+    private void Start()
+    {
+        LVLUP.Invoke(this, new EventArgs());
+    }
 
     private void LvlChecking()
     {
