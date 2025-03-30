@@ -21,11 +21,11 @@ public sealed class RunController : MonoBehaviour
     }
     private uint _souls = 0;
     [SerializeField]
-    readonly uint[] LevelUpBorders;
-    Queue<uint> _levelUpBordersQueue;
+    private uint[] LevelUpBorders;
+    Queue<uint> _levelUpBordersQueue = new();
     uint timer = 1;
     event EventHandler nextWave;
-    private Queue<Wave> waves;
+    private Queue<Wave> waves = new();
     [SerializeField]
     private uint StrongWaveTime;
     [SerializeField]
