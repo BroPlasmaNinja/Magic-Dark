@@ -25,4 +25,4 @@ MonoBehaviour:
   countProjectilecoed: 1
   spreadAnglecoef: 1
   waitBetweenProjectileMscoef: 1
-  lvl: 0
+  lvl: 1
