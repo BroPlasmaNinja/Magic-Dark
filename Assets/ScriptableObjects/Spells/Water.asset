@@ -13,16 +13,18 @@ MonoBehaviour:
   m_Name: Water
   m_EditorClassIdentifier: 
   sprite: {fileID: -380545855, guid: 073d8e744604c1d43acd51439d84fb8c, type: 3}
-  dmg: 15
-  speed: 2
-  cooldown: 5
-  countProjectiles: 6
-  spreadAngle: 15
-  waitBetweenProjectileMs: 2000
-  dmgcoef: 1
+  castSound: {fileID: 0}
+  bangSound: {fileID: 0}
+  _basedmg: 20
+  _basespeed: 3
+  _basecooldown: 1.5
+  _basecountProjectiles: 4
+  _basespreadAngle: 40
+  _basewaitBetweenProjectileMs: 1.75
+  dmgcoef: 2
   speedcoef: 1
   cooldowncoef: 1
-  countProjectilecoed: 1
+  countProjectilecoef: 1
   spreadAnglecoef: 1
   waitBetweenProjectileMscoef: 1
-  lvl: 0
+  lvl: 1
