@@ -13,16 +13,18 @@ MonoBehaviour:
   m_Name: Fireball
   m_EditorClassIdentifier: 
   sprite: {fileID: -410618471, guid: 7b006736acaa6554088301ebf416f2bf, type: 3}
-  dmg: 10
-  speed: 3
-  cooldown: 5
-  countProjectiles: 4
-  spreadAngle: 35
-  waitBetweenProjectileMs: 1500
+  castSound: {fileID: 0}
+  bangSound: {fileID: 0}
+  _basedmg: 25
+  _basespeed: 3
+  _basecooldown: 1.5
+  _basecountProjectiles: 4
+  _basespreadAngle: 45
+  _basewaitBetweenProjectileMs: 0
   dmgcoef: 1.5
-  speedcoef: 1
+  speedcoef: 1.2
   cooldowncoef: 1
-  countProjectilecoed: 1
+  countProjectilecoef: 1
   spreadAnglecoef: 1
   waitBetweenProjectileMscoef: 1
-  lvl: 0
+  lvl: 1

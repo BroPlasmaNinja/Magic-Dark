@@ -13,16 +13,18 @@ MonoBehaviour:
   m_Name: Lightning
   m_EditorClassIdentifier: 
   sprite: {fileID: 1188749613, guid: d47f124897bc86c4db988ba88316a9de, type: 3}
-  dmg: 35
-  speed: 4
-  cooldown: 5
-  countProjectiles: 4
-  spreadAngle: 25
-  waitBetweenProjectileMs: 500
-  dmgcoef: 1
+  castSound: {fileID: 0}
+  bangSound: {fileID: 0}
+  _basedmg: 15
+  _basespeed: 4
+  _basecooldown: 1
+  _basecountProjectiles: 6
+  _basespreadAngle: 30
+  _basewaitBetweenProjectileMs: 0.5
+  dmgcoef: 1.25
   speedcoef: 1
   cooldowncoef: 1
-  countProjectilecoed: 1
+  countProjectilecoef: 1
   spreadAnglecoef: 1
   waitBetweenProjectileMscoef: 1
-  lvl: 0
+  lvl: 1

@@ -13,16 +13,18 @@ MonoBehaviour:
   m_Name: SpellInfo
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: bfb394395c54dae41beab0a0a9557257, type: 3}
-  dmg: 3
-  speed: 20
-  cooldown: 1
-  countProjectiles: 2
-  spreadAngle: 10
-  waitBetweenProjectileMs: 100
+  castSound: {fileID: 0}
+  bangSound: {fileID: 0}
+  _basedmg: 0
+  _basespeed: 0
+  _basecooldown: 0
+  _basecountProjectiles: 0
+  _basespreadAngle: 0
+  _basewaitBetweenProjectileMs: 0
   dmgcoef: 1
   speedcoef: 1
   cooldowncoef: 1
-  countProjectilecoed: 1
+  countProjectilecoef: 1
   spreadAnglecoef: 1
   waitBetweenProjectileMscoef: 1
   lvl: 0
