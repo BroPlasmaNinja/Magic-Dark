@@ -9,6 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eba1f2a0c74a53c47a11258748cdb066, type: 3}
-  m_Name: EnemyNenemy
+  m_Script: {fileID: 11500000, guid: 5fafa3f49f2b65b489ada212dff60849, type: 3}
+  m_Name: Wave60(DontWork)
   m_EditorClassIdentifier: 
+  EnemiesList: []
+  EnemiesCount: 
+  countRepeat: 01000000
+  waitTimeMs: 19000000
+  MinTimer: 25
+  MaxTimer: 35
+  _necessarySouls: 0
+  Type: 2
