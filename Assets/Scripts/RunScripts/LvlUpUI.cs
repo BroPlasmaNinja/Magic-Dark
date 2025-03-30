@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.RunScripts
 {
@@ -54,6 +55,9 @@ namespace Assets.Scripts.RunScripts
                 {
                     Player.ins.gameObject.GetComponentInChildren<Shooter>().NewSpell(item);
                 }
+                FirstImage.GetComponent<Image>().sprite = crutch[0].state.sprite;
+                SecondImage.GetComponent<Image>().sprite = crutch[1].state.sprite;
+                ThirdImage.GetComponent<Image>().sprite = crutch[2].state.sprite;
             }
         }
     }
