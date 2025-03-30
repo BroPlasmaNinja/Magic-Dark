@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4303717fa0391ff499586ba6321fa86e, type: 3}
+  m_Name: Fireball
+  m_EditorClassIdentifier: 
+  sprite: {fileID: -410618471, guid: 7b006736acaa6554088301ebf416f2bf, type: 3}
+  dmg: 10
+  speed: 3
+  cooldown: 5
+  countProjectiles: 4
+  spreadAngle: 35
+  waitBetweenProjectileMs: 1500
+  dmgcoef: 1.5
+  speedcoef: 1
+  cooldowncoef: 1
+  countProjectilecoed: 1
+  spreadAnglecoef: 1
+  waitBetweenProjectileMscoef: 1
+  lvl: 0
