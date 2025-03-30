@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.RunScripts.Interfaces;
+using Assets.Scripts.RunScripts.ScriptableObjects;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,6 +25,8 @@ namespace Assets.Scripts.RunScripts
 
         private bool isImmortality = false;
         [SerializeField]
+        public List<SpellInfo> spellInfos = new List<SpellInfo>();
+
         public List<Spell> SpellList = new List<Spell>();
 
         IEnumerator ShotsImmortality()
@@ -40,6 +43,10 @@ namespace Assets.Scripts.RunScripts
         private void Awake()
         {
             ins = this;
+            foreach (var item in spellInfos)
+            {
+                SpellList.Add(new Spell(item));
+            }
             StartCoroutine(RotateAnim());
         }
 

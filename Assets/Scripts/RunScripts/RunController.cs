@@ -32,8 +32,6 @@ public sealed class RunController : MonoBehaviour
     private uint TimeBetweenWaves;
     [SerializeField]
     List<Wave> AvailableWaves;
-    public GameObject enemyPrefab; // Префаб врага
-    public Transform playerTransform; // Трансформация игрока (героя)
     public float spawnRadius = 10f; // Радиус, в котором будут спавниться враги
     public float minSpawnRadius = 5f; // Минимальный радиус, чтобы враги не спавнились слишком близко к игроку
     public event EventHandler LVLUP;
@@ -42,6 +40,7 @@ public sealed class RunController : MonoBehaviour
     private void Start()
     {
         LVLUP.Invoke(this, new EventArgs());
+
     }
 
     private void LvlChecking()
@@ -109,9 +108,9 @@ public sealed class RunController : MonoBehaviour
         {
             float randomAngle = UnityEngine.Random.Range(0f, 360f);
             float randomDistance = UnityEngine.Random.Range(minSpawnRadius, spawnRadius);
-            spawnPosition = playerTransform.position + Quaternion.Euler(0, randomAngle, 0) * Vector3.forward * randomDistance;
+            spawnPosition = Player.ins.transform.position + Quaternion.Euler(0, randomAngle, 0) * Vector3.forward * randomDistance;
 
-            if (Vector3.Distance(playerTransform.position, spawnPosition) >= minSpawnRadius && Vector3.Distance(playerTransform.position, spawnPosition) <= spawnRadius)
+            if (Vector3.Distance(Player.ins.transform.position, spawnPosition) >= minSpawnRadius && Vector3.Distance(Player.ins.transform.position, spawnPosition) <= spawnRadius)
             {
                 validPositionFound = true;
             }

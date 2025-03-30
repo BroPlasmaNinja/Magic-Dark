@@ -40,6 +40,10 @@ namespace Assets.Scripts.RunScripts
         {
             GameManager.runController.LVLUP += TurnOn;
         }
+        private void Start()
+        {
+            crutch = Player.ins.SpellList.ToArray();
+        }
 
         private void TurnOn(object sender, EventArgs e)
         {
