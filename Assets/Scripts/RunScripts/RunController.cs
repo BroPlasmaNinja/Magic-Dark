@@ -25,7 +25,7 @@ public sealed class RunController : MonoBehaviour
     Queue<uint> _levelUpBordersQueue = new Queue<uint>();
     uint timer = 1;
     event EventHandler nextWave;
-    private Queue<Wave> waves;
+    private Queue<Wave> waves = new Queue<Wave>();
     [SerializeField]
     private uint StrongWaveTime;
     [SerializeField]

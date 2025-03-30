@@ -18,7 +18,7 @@ namespace Assets.Scripts.RunScripts
         [SerializeField]
         GameObject ThirdImage;
 
-        public Spell[] crutch = new Spell[3];
+        public Spell[] crutch;
 
         public void PickFirst()
         {
@@ -36,18 +36,16 @@ namespace Assets.Scripts.RunScripts
         {
             UIRoot.SetActive(false);
         }
-        private void Awake()
-        {
-            GameManager.runController.LVLUP += TurnOn;
-        }
         private void Start()
         {
-            crutch = Player.ins.SpellList.ToArray();
+            GameManager.runController.LVLUP += TurnOn;
         }
 
         private void TurnOn(object sender, EventArgs e)
         {
             UIRoot.SetActive(true);
+            if(crutch == null)
+                crutch = Player.ins.SpellList.ToArray();
         }
     }
 }
