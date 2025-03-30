@@ -12,7 +12,6 @@ public sealed class RunController : MonoBehaviour
     public uint Souls { set
         {
             _souls = value;
-            LvlChecking();
         }
         get
         {

@@ -42,8 +42,8 @@ namespace Assets.Scripts.RunScripts
             var rb2d = gm.AddComponent<Rigidbody2D>();
             rb2d.gravityScale = 0;
             gm.AddComponent<CircleCollider2D>();
+            gm.layer = 7;
 
-            Debug.Log("amogus");
             return gm;
         }
         

@@ -47,8 +47,14 @@ namespace Assets.Scripts.RunScripts
         private void TurnOn(object sender, EventArgs e)
         {
             UIRoot.SetActive(true);
-            if(crutch.Length == 0)
+            if (crutch.Length == 0)
+            {
                 crutch = Player.ins.SpellList.ToArray();
+                foreach (var item in crutch)
+                {
+                    Player.ins.gameObject.GetComponentInChildren<Shooter>().NewSpell(item);
+                }
+            }
         }
     }
 }

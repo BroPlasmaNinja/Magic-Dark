@@ -29,7 +29,7 @@ public class Shooter : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log("Amogus");
+            Debug.Log(spell.state);
             yield return new WaitForSeconds(spell.state.cooldown);
             if (Enemies.Count != 0)
                 for (int i = 0; i < spell.state.countProjectiles; i++)
