@@ -16,20 +16,29 @@ namespace Assets.Scripts.RunScripts.ScriptableObjects
         public ulong necessarySouls => _necessarySouls;
         [SerializeField]
         public Sprite sprite;
-        //Здесь оставь звук каста
-        //Здесь оставь звук попадения
         [SerializeField]
-        public int dmg;
+        public AudioSource castSound;
         [SerializeField]
-        public float speed;
+        public AudioSource bangSound;
         [SerializeField]
-        public float cooldown;
+        private int _basedmg;
         [SerializeField]
-        public int countProjectiles;
+        private float _basespeed;
         [SerializeField]
-        public float spreadAngle;
+        private float _basecooldown;
         [SerializeField]
-        public float waitBetweenProjectileMs;
+        private int _basecountProjectiles;
+        [SerializeField]
+        private float _basespreadAngle;
+        [SerializeField]
+        private float _basewaitBetweenProjectileMs;
+
+        public int dmg => (int)(_basedmg*lvl*dmgcoef);
+        public float speed => _basespeed*lvl*speedcoef;
+        public float cooldown => _basecooldown*lvl*cooldowncoef;
+        public int countProjectiles => (int)(_basecountProjectiles * lvl * countProjectilecoef);
+        public float spreadAngle => _basespreadAngle * lvl * spreadAnglecoef;
+        public float waitBetweenProjectileMs => _basewaitBetweenProjectileMs * lvl * waitBetweenProjectileMscoef;
         [SerializeField]
         public float dmgcoef = 1;
         [SerializeField]
@@ -37,7 +46,7 @@ namespace Assets.Scripts.RunScripts.ScriptableObjects
         [SerializeField]
         public float cooldowncoef = 1;
         [SerializeField]
-        public float countProjectilecoed = 1;
+        public float countProjectilecoef = 1;
         [SerializeField]
         public float spreadAnglecoef = 1;
         [SerializeField]
@@ -48,17 +57,17 @@ namespace Assets.Scripts.RunScripts.ScriptableObjects
         public void SetState(SpellInfo info)
         {
             sprite = info.sprite;
-            dmg = info.dmg;
-            speed = info.speed;
-            cooldown = info.cooldown;
-            countProjectiles = info.countProjectiles;
-            spreadAnglecoef = info.spreadAnglecoef;
-            waitBetweenProjectileMs = info.waitBetweenProjectileMs;
+            _basedmg = info.dmg;
+            _basespeed = info.speed;
+            _basecooldown = info.cooldown;
+            _basecountProjectiles = info.countProjectiles;
+            _basespreadAngle = info.spreadAnglecoef;
+            _basewaitBetweenProjectileMs = info.waitBetweenProjectileMs;
             lvl = info.lvl;
             dmgcoef = info.dmgcoef;
             speedcoef = info.speedcoef;
             cooldowncoef = info.cooldowncoef;
-            countProjectilecoed += info.countProjectilecoed;
+            countProjectilecoef += info.countProjectilecoef;
             spreadAnglecoef += info.spreadAnglecoef;
             waitBetweenProjectileMscoef += info.waitBetweenProjectileMscoef;
         }
