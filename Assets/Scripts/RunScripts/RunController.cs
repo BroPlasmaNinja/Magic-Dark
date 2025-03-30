@@ -19,6 +19,11 @@ public sealed class RunController : MonoBehaviour
     private uint TimeBetweenWaves;
     [SerializeField]
     List<Wave> AvailableWaves;
+    public GameObject enemyPrefab; // Префаб врага
+    public Transform playerTransform; // Трансформация игрока (героя)
+    public float spawnRadius = 10f; // Радиус, в котором будут спавниться враги
+    public float minSpawnRadius = 5f; // Минимальный радиус, чтобы враги не спавнились слишком близко к игроку
+
 
     private void StartSpawnWave(object sender, EventArgs args)
     {
@@ -49,17 +54,45 @@ public sealed class RunController : MonoBehaviour
     {
         for (int i = 0; i < currentWave.countRepeat.Count; i++)
         {
-            for(int j = 0; j < currentWave.EnemiesCount[i]; j++)
+            for (int j = 0; j < currentWave.EnemiesCount[i]; j++)
             {
-                for(int k = 0; k < currentWave.countRepeat[i]; k++)
+                for (int k = 0; k < currentWave.countRepeat[i]; k++)
                 {
-                    // TODO ENEMY CREATE ON POSE
+                    // Создание врага в случайной точке в радиусе от игрока
+                    Vector3 spawnPosition = GetRandomSpawnPosition();
+                    GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+
+                    // TODO: добавить логику настройки врага, если необходимо, например,
+                    // enemy.GetComponent<Enemy>().SetTarget(playerTransform);
+
                 }
                 yield return new WaitForSeconds(currentWave.waitTimeMs[i]);
             }
         }
         yield break;
     }
+
+    // Метод для получения случайной позиции спавна в радиусе от игрока
+    private Vector3 GetRandomSpawnPosition()
+    {
+        Vector3 spawnPosition = Vector3.zero;
+        bool validPositionFound = false;
+
+        while (!validPositionFound)
+        {
+            float randomAngle = UnityEngine.Random.Range(0f, 360f);
+            float randomDistance = UnityEngine.Random.Range(minSpawnRadius, spawnRadius);
+            spawnPosition = playerTransform.position + Quaternion.Euler(0, randomAngle, 0) * Vector3.forward * randomDistance;
+
+            if (Vector3.Distance(playerTransform.position, spawnPosition) >= minSpawnRadius && Vector3.Distance(playerTransform.position, spawnPosition) <= spawnRadius)
+            {
+                validPositionFound = true;
+            }
+        }
+
+        return spawnPosition;
+    }
+
     private void Awake()
     {
         GameManager.runController = this;
