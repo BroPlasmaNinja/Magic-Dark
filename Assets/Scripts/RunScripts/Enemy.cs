@@ -28,6 +28,7 @@ namespace Assets.Scripts.RunScripts
             spriteComp.color = enemyInfo.color;
 
             objEnemy.transform.parent = tr;
+            objEnemy.tag = "Enemy";
 
             return objEnemy;
         }
