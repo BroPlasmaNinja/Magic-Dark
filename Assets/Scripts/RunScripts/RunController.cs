@@ -22,7 +22,7 @@ public sealed class RunController : MonoBehaviour
     private uint _souls = 0;
     [SerializeField]
     private uint[] LevelUpBorders;
-    Queue<uint> _levelUpBordersQueue;
+    Queue<uint> _levelUpBordersQueue = new Queue<uint>();
     uint timer = 1;
     event EventHandler nextWave;
     private Queue<Wave> waves;

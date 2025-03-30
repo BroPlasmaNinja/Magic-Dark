@@ -23,7 +23,7 @@ namespace Assets.Scripts.RunScripts
         private ushort x = 0;
 
         private bool isImmortality = false;
-
+        [SerializeField]
         public List<Spell> SpellList = new List<Spell>();
 
         IEnumerator ShotsImmortality()

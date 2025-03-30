@@ -12,11 +12,6 @@ public class Shooter : MonoBehaviour
     SpellInfo info;
     private List<GameObject> Enemies = new List<GameObject>();
     private GameObject closestEnemy => Enemies.Aggregate((x, y) => (x.transform.position - transform.position).magnitude < (y.transform.position - transform.position).magnitude ? x : y);
-
-    private void Awake()
-    {
-        NewSpell(new Spell(info));
-    }
     public void NewSpell(Spell sp)
     {
         StartCoroutine(SpellCast(sp));
