@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4303717fa0391ff499586ba6321fa86e, type: 3}
   m_Name: Fireball
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
-  dmg: 0
-  speed: 0
-  cooldown: 0
-  countProjectiles: 0
-  spreadAngle: 0
-  waitBetweenProjectileMs: 0
-  dmgcoef: 1
+  sprite: {fileID: -410618471, guid: 7b006736acaa6554088301ebf416f2bf, type: 3}
+  dmg: 10
+  speed: 3
+  cooldown: 5
+  countProjectiles: 4
+  spreadAngle: 35
+  waitBetweenProjectileMs: 1500
+  dmgcoef: 1.5
   speedcoef: 1
   cooldowncoef: 1
   countProjectilecoed: 1
