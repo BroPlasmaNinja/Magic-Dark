@@ -22,20 +22,27 @@ public sealed class RunController : MonoBehaviour
     private uint _souls = 0;
     [SerializeField]
     private uint[] LevelUpBorders;
-    Queue<uint> _levelUpBordersQueue = new();
+    Queue<uint> _levelUpBordersQueue = new Queue<uint>();
     uint timer = 1;
     event EventHandler nextWave;
-    private Queue<Wave> waves = new();
+    private Queue<Wave> waves = new Queue<Wave>();
     [SerializeField]
     private uint StrongWaveTime;
     [SerializeField]
     private uint TimeBetweenWaves;
     [SerializeField]
     List<Wave> AvailableWaves;
-    public GameObject enemyPrefab; // Префаб врага
-    public float spawnRadius = 10f; // Радиус, в котором будут спавниться враги
-    public float minSpawnRadius = 5f; // Минимальный радиус, чтобы враги не спавнились слишком близко к игроку
-    event EventHandler LVLUP;
+    public GameObject enemyPrefab;
+    public float spawnRadius = 10f; // ГђГ Г¤ГЁГіГ±, Гў ГЄГ®ГІГ®Г°Г®Г¬ ГЎГіГ¤ГіГІ Г±ГЇГ ГўГ­ГЁГІГјГ±Гї ГўГ°Г ГЈГЁ
+    public float minSpawnRadius = 5f; // ГЊГЁГ­ГЁГ¬Г Г«ГјГ­Г»Г© Г°Г Г¤ГЁГіГ±, Г·ГІГ®ГЎГ» ГўГ°Г ГЈГЁ Г­ГҐ Г±ГЇГ ГўГ­ГЁГ«ГЁГ±Гј Г±Г«ГЁГёГЄГ®Г¬ ГЎГ«ГЁГ§ГЄГ® ГЄ ГЁГЈГ°Г®ГЄГі
+    public event EventHandler LVLUP;
+
+
+    private void Start()
+    {
+        LVLUP.Invoke(this, new EventArgs());
+
+    }
 
     private void LvlChecking()
     {
@@ -78,7 +85,7 @@ public sealed class RunController : MonoBehaviour
             {
                 for (int k = 0; k < currentWave.countRepeat[i]; k++)
                 {
-                    // Создание врага в случайной точке в радиусе от игрока
+                    // Г‘Г®Г§Г¤Г Г­ГЁГҐ ГўГ°Г ГЈГ  Гў Г±Г«ГіГ·Г Г©Г­Г®Г© ГІГ®Г·ГЄГҐ Гў Г°Г Г¤ГЁГіГ±ГҐ Г®ГІ ГЁГЈГ°Г®ГЄГ 
                     Vector3 spawnPosition = GetRandomSpawnPosition();
                     foreach (var enemy in currentWave.EnemiesList)
                     {
@@ -92,7 +99,7 @@ public sealed class RunController : MonoBehaviour
         yield break;
     }
 
-    // Метод для получения случайной позиции спавна в радиусе от игрока
+    // ГЊГҐГІГ®Г¤ Г¤Г«Гї ГЇГ®Г«ГіГ·ГҐГ­ГЁГї Г±Г«ГіГ·Г Г©Г­Г®Г© ГЇГ®Г§ГЁГ¶ГЁГЁ Г±ГЇГ ГўГ­Г  Гў Г°Г Г¤ГЁГіГ±ГҐ Г®ГІ ГЁГЈГ°Г®ГЄГ 
     private Vector3 GetRandomSpawnPosition()
     {
         Vector3 spawnPosition = Vector3.zero;
